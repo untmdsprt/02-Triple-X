@@ -1,12 +1,12 @@
 #include <iostream>
 
-int main()
-{
-    // Print welcome message to the terminal
-    std::cout << "You are hacking into an ATM";
-    std::cout << std::endl;
-    std::cout << "You'll need to enter the correct codes to continue...";
-    std::cout << std::endl;
+void PrintIntroduction() {
+    std::cout << "You are hacking into an ATM\n";
+    std::cout << "You'll need to enter the correct codes to continue...\n\n";
+}
+
+void PlayGame() {
+    PrintIntroduction();
 
     // Declare 3 number code
     const int CodeA = 4;
@@ -17,7 +17,7 @@ int main()
     const int CodeProduct = CodeA * CodeB * CodeC;
 
     // Print CodeSum and CodeProduct to the terminal
-    std::cout << "There are 3 numbers in the code" << std::endl; 
+    std::cout << "There are 3 numbers in the code\n"; 
     std::cout << "The codes add up to: " << CodeSum << std::endl;
     std::cout << "The codes multiply to give: " << CodeProduct << std::endl;
 
@@ -25,23 +25,21 @@ int main()
     int GuessA, GuessB, GuessC;
 
     std::cout << "Please enter three numbers separated by a space. Press enter when finished: ";
-    std::cin >> GuessA;
-    std::cin >> GuessB;
-    std::cin >> GuessC;
+    std::cin >> GuessA >> GuessB >> GuessC;
 
     int GuessSum = GuessA + GuessB + GuessC;
     int GuessProduct = GuessA * GuessB * GuessC;
 
-    if (GuessSum == CodeSum && GuessProduct == CodeProduct)
-    {
-        std::cout << "You've hacked the ATM!!" << std::endl;
+    // Check if the player's guess is correct
+    if (GuessSum == CodeSum && GuessProduct == CodeProduct) {
+        std::cout << "You've hacked the ATM!!\n\n";
     }
-    else
-    {
-        std::cout << "Sorry, wrong code! Police are on their way!!" << std::endl;
+    else {
+        std::cout << "Sorry, wrong code! Police are on their way!!\n\n";
     }
-    
+}
 
-
+int main() {
+    PlayGame();    
     return 0;
 }
