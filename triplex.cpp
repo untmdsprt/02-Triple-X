@@ -1,14 +1,16 @@
 #include <iostream>
 
-void PrintIntroduction() {
-    std::cout << "You are hacking into an ATM\n";
-    std::cout << "You'll need to enter the correct codes to continue...\n\n";
+void PrintIntroduction(int Difficulty)
+{
+    std::cout << "\nYou are hacking into a level " << Difficulty;
+    std::cout << " bank...\nYou'll need to enter the correct codes to continue...\n\n";
 }
 
-void PlayGame() {
-    PrintIntroduction();
+bool PlayGame(int Difficulty)
+{
+    PrintIntroduction(Difficulty);
 
-    // Declare 3 number code
+    // Declare 3 number codes
     const int CodeA = 4;
     const int CodeB = 3;
     const int CodeC = 2;
@@ -31,15 +33,32 @@ void PlayGame() {
     int GuessProduct = GuessA * GuessB * GuessC;
 
     // Check if the player's guess is correct
-    if (GuessSum == CodeSum && GuessProduct == CodeProduct) {
-        std::cout << "You've hacked the ATM!!\n\n";
+    if (GuessSum == CodeSum && GuessProduct == CodeProduct)
+    {
+        std::cout << "You've hacked the bank!!\n\n";
+        return true;
     }
-    else {
+    else
+    {
         std::cout << "Sorry, wrong code! Police are on their way!!\n\n";
+        return false;
     }
 }
 
-int main() {
-    PlayGame();    
+int main()
+{
+    int LevelDifficulty = 1;
+    while (true)
+    {
+        bool bLevelComplete = PlayGame(LevelDifficulty);
+        std::cin.clear();   // Clears any errors
+        std::cin.ignore();  // Discards the buffer
+
+        if (bLevelComplete)
+        {
+            ++LevelDifficulty;
+        }
+    }
+    
     return 0;
 }
