@@ -24,13 +24,23 @@ int main()
     // Store player guesses
     int GuessA, GuessB, GuessC;
 
-    // TODO add something here so player will know how to enter their guesses
+    std::cout << "Please enter three numbers separated by a space. Press enter when finished: ";
     std::cin >> GuessA;
     std::cin >> GuessB;
     std::cin >> GuessC;
 
     int GuessSum = GuessA + GuessB + GuessC;
     int GuessProduct = GuessA * GuessB * GuessC;
+
+    if (GuessSum == CodeSum && GuessProduct == CodeProduct)
+    {
+        std::cout << "You've hacked the ATM!!" << std::endl;
+    }
+    else
+    {
+        std::cout << "Sorry, wrong code! Police are on their way!!" << std::endl;
+    }
+    
 
 
     return 0;
