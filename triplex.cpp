@@ -2,20 +2,27 @@
 
 int main()
 {
+    // Print welcome message to the terminal
+    
     std::cout << "You are going to be robbing a bank";
     std::cout << std::endl;
     std::cout << "You need to enter the correct codes to continue...";
     std::cout << std::endl;
 
-    const int a = 4;
-    const int b = 3;
-    const int c = 5;
+    // Declare 3 number code
+    const int CodeA = 4;
+    const int CodeB = 3;
+    const int CodeC = 5;
 
-    const int sum = a + b + c;
-    const int product = a * b * c;
+    const int CodeSum = CodeA + CodeB + CodeC;
+    const int CodeProduct = CodeA * CodeB * CodeC;
 
-    std::cout << sum << std::endl;
-    std::cout << product << std::endl;
+    // Print CodeSum and CodeProduct to the terminal
+    std::cout << "There are 3 numbers in the code" << std::endl; 
+    std::cout << "The codes add up to: " << CodeSum << std::endl;
+    std::cout << "The codes multiply to give: " << CodeProduct << std::endl;
+
+    int PlayerGuess;
 
     return 0;
 }
