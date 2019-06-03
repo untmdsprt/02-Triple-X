@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 
 void PrintIntroduction(int Difficulty)
 {
@@ -11,9 +12,9 @@ bool PlayGame(int Difficulty)
     PrintIntroduction(Difficulty);
 
     // Declare 3 number codes
-    const int CodeA = 4;
-    const int CodeB = 3;
-    const int CodeC = 2;
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -35,12 +36,12 @@ bool PlayGame(int Difficulty)
     // Check if the player's guess is correct
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
-        std::cout << "You've hacked the bank!!\n\n";
+        std::cout << "You've hacked the level " << Difficulty << " bank!!\n\n";
         return true;
     }
     else
     {
-        std::cout << "Sorry, wrong code! Police are on their way!!\n\n";
+        std::cout << "Sorry, wrong code! Careful and try again.\n\n";
         return false;
     }
 }
@@ -48,7 +49,9 @@ bool PlayGame(int Difficulty)
 int main()
 {
     int LevelDifficulty = 1;
-    while (true)
+    const int MaxDifficulty = 4;
+
+    while (LevelDifficulty <= MaxDifficulty) //Loop game until all levels completed
     {
         bool bLevelComplete = PlayGame(LevelDifficulty);
         std::cin.clear();   // Clears any errors
@@ -59,6 +62,8 @@ int main()
             ++LevelDifficulty;
         }
     }
-    
+
+    std::cout << "Congratulations you are a master bank hacker!!\n";
+    std::cout << "Quick! Take the money and run! Police have been called!\n";
     return 0;
 }
