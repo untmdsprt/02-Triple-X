@@ -48,6 +48,7 @@ bool PlayGame(int Difficulty)
 
 int main()
 {
+    srand(time(NULL));  //create new random sequence based on time of day
     int LevelDifficulty = 1;
     const int MaxDifficulty = 4;
 
