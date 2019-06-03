@@ -6,6 +6,7 @@ get them right, you'll go on to the next level.
 ### Mac or Linux
 In the terminal type:
 g++ triplex.cpp -o triplex
+
 Once compiled type:
 ./triplex
 
